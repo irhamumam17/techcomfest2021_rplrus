@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activities.HistoryBookingActivity"
+    android:orientation="vertical">
+
+    <include
+        layout="@layout/toolbar"
+        android:id="@+id/divToolbar"/>
+
+    <com.facebook.shimmer.ShimmerFrameLayout
+        android:layout_below="@id/divToolbar"
+        android:id="@+id/shimmer_view_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:orientation="vertical"
+        android:layout_marginHorizontal="@dimen/_10sdp"
+        >
+
+        <!-- Adding 3 rows of placeholders -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <include layout="@layout/item_placeholder_field" />
+
+            <include layout="@layout/item_placeholder_field" />
+
+            <include layout="@layout/item_placeholder_field" />
+
+        </LinearLayout>
+
+    </com.facebook.shimmer.ShimmerFrameLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_booking"
+        android:layout_below="@+id/divToolbar"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:listitem="@layout/item_booking"
+        android:visibility="gone"/>
+
+    <LinearLayout
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginHorizontal="@dimen/_10sdp"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:layout_centerInParent="true"
+        android:layout_centerVertical="true"
+        >
+        <TextView
+            android:visibility="visible"
+            android:id="@+id/tvCondition"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="@dimen/_1sdp"
+            android:paddingBottom="@dimen/_2sdp"
+            android:textColor="@color/txtBlack"
+            android:textSize="@dimen/_9ssp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:fontFamily="@font/montserrat"
+            android:layout_marginBottom="@dimen/_3sdp"
+            android:layout_marginTop="@dimen/_10sdp"/>
+        <ImageView
+            android:id="@+id/ivReload"
+            android:visibility="gone"
+            android:layout_marginVertical="@dimen/_10sdp"
+            android:layout_width="@dimen/_40sdp"
+            android:layout_height="@dimen/_40sdp"
+            android:src="@drawable/ic_replay"
+            android:tint="@color/colorPrimary"
+            />
+    </LinearLayout>
+</RelativeLayout>
